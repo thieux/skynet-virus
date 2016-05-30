@@ -16,4 +16,16 @@ public class SkynetVirusTest {
 
         Assert.assertEquals(2, target);
     }
+
+    @Test
+    public void severNeighbourWhenNoAgentIsConnectedToGateway() {
+        SkynetVirus skynetVirus = new SkynetVirus(3);
+
+        skynetVirus.createLink(1, 2);
+        skynetVirus.createLink(0, 1);
+
+        int target = skynetVirus.linkToSever(0, 2);
+
+        Assert.assertEquals(1, target);
+    }
 }
