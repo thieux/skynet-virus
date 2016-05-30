@@ -29,7 +29,7 @@ class SkynetVirus {
     /**
      * Computes the skynet link to cut.
      *
-     * @param agent position (node index) of the skynet agent
+     * @param agent   position (node index) of the skynet agent
      * @param gateway position (node index) of the subnet gateway
      * @return the target node of the link to sever
      */
@@ -42,7 +42,7 @@ class SkynetVirus {
             }
         }
 
-        return -1;
+        return neighbourhood.get(0);
     }
 
 
