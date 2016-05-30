@@ -18,12 +18,21 @@ class Player {
         int N = in.nextInt(); // the total number of nodes in the level, including the gateways
         int L = in.nextInt(); // the number of links
         int E = in.nextInt(); // the number of exit gateways
+
+        SkynetVirus subnet = new SkynetVirus(N);
+
         for (int i = 0; i < L; i++) {
             int N1 = in.nextInt(); // N1 and N2 defines a link between these nodes
             int N2 = in.nextInt();
+
+            subnet.createLink(N1, N2);
         }
+
+        int gateway = -1;
         for (int i = 0; i < E; i++) {
             int EI = in.nextInt(); // the index of a gateway node
+
+            gateway = EI;
         }
 
         // game loop
@@ -32,10 +41,11 @@ class Player {
 
             // Write an action using System.output.println()
             // To debug: System.err.println("Debug messages...");
-
+            int linkTarget = subnet.linkToSever(SI, gateway);
 
             // Example: 0 1 are the indices of the nodes you wish to sever the link between
-            output.println("0 1");
+            output.printf("%d %d\n", SI, linkTarget);
+            output.flush();
         }
     }
 }

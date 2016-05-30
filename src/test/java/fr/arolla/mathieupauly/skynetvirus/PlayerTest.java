@@ -39,7 +39,7 @@ public class PlayerTest {
         new Player().play(
                 new ByteArrayInputStream(input.getBytes()),
                 new PrintStream(output));
-        Assert.assertEquals("1 2", output.toString());
+        Assert.assertEquals("1 2\n", output.toString());
     }
 
 }
