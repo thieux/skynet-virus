@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class SkynetVirusTest {
+public class PlayerTest {
 
     /**
      * Echo implementation used on CodinGame to extract the standard input
