@@ -42,10 +42,6 @@ class SkynetVirus {
             }
         }
 
-        if (!neighbourhood.isEmpty()) {
-            return neighbourhood.get(0);
-        }
-
         return -1;
     }
 

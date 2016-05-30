@@ -6,7 +6,7 @@ import org.junit.Test;
 public class SkynetVirusTest {
 
     @Test
-    public void simple() {
+    public void severGatewayLinkWhenAgentConnectedToIt() {
         SkynetVirus skynetVirus = new SkynetVirus(3);
 
         skynetVirus.createLink(1, 2);
