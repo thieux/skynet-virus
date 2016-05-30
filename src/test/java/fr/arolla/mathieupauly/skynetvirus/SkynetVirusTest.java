@@ -1,4 +1,4 @@
-package fr.arolla.mathieupauly;
+package fr.arolla.mathieupauly.skynetvirus;
 
 import org.junit.Assert;
 import org.junit.Test;
