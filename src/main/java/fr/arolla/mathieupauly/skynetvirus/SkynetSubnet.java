@@ -23,8 +23,8 @@ class SkynetSubnet {
     }
 
     void severLink(int n1, int n2) {
-        links[n1][n2] = true;
-        links[n2][n1] = true;
+        links[n1][n2] = false;
+        links[n2][n1] = false;
     }
 
     List<Integer> neighbours(int node) {
