@@ -12,9 +12,10 @@ public class SkynetVirusTest {
         subnet.createLink(1, 2);
         subnet.createLink(0, 1);
 
-        int target = new SkynetVirus(subnet).linkToSever(1, 2);
+        Link linkToSever = new SkynetVirus(subnet).linkToSever(1, 2);
 
-        Assert.assertEquals(2, target);
+        Assert.assertEquals(1, linkToSever.n1);
+        Assert.assertEquals(2, linkToSever.n2);
     }
 
     @Test
@@ -24,17 +25,19 @@ public class SkynetVirusTest {
         subnet.createLink(1, 2);
         subnet.createLink(0, 1);
 
-        int target = new SkynetVirus(subnet).linkToSever(0, 2);
+        Link linkToSever = new SkynetVirus(subnet).linkToSever(0, 2);
 
-        Assert.assertEquals(1, target);
+        Assert.assertEquals(0, linkToSever.n1);
+        Assert.assertEquals(1, linkToSever.n2);
     }
 
     @Test
     public void doNothingWhenAgentIsIsolated() {
         SkynetSubnet subnet = new SkynetSubnet(3);
 
-        int target = new SkynetVirus(subnet).linkToSever(0, 2);
+        Link linkToSever = new SkynetVirus(subnet).linkToSever(0, 2);
 
-        Assert.assertEquals(-1, target);
+        Assert.assertEquals(-1, linkToSever.n1);
+        Assert.assertEquals(-1, linkToSever.n2);
     }
 }

@@ -21,20 +21,22 @@ class SkynetVirus {
      * @param gateway position (node index) of the subnet gateway
      * @return the target node of the link to sever
      */
-    int linkToSever(int agent, int gateway) {
+    Link linkToSever(int agent, int gateway) {
         List<Integer> neighbourhood = subnet.neighbours(agent);
 
         for (Integer neighbour : neighbourhood) {
             if (gateway == neighbour) {
-                return neighbour;
+                return new Link(agent, gateway);
             }
         }
 
         if (!neighbourhood.isEmpty()) {
-            return neighbourhood.get(0);
+            Integer neighbour = neighbourhood.get(0);
+
+            return new Link(agent, neighbour);
         }
 
-        return -1;
+        return Link.NONE;
     }
 
 
