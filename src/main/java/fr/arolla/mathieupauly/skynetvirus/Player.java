@@ -19,7 +19,7 @@ class Player {
         int L = in.nextInt(); // the number of links
         int E = in.nextInt(); // the number of exit gateways
 
-        SkynetVirus subnet = new SkynetVirus(N);
+        SkynetSubnet subnet = new SkynetSubnet(N);
 
         for (int i = 0; i < L; i++) {
             int N1 = in.nextInt(); // N1 and N2 defines a link between these nodes
@@ -35,13 +35,15 @@ class Player {
             gateway = EI;
         }
 
+        SkynetVirus virus = new SkynetVirus(subnet);
+
         // game loop
         while (in.hasNext()) {
             int SI = in.nextInt(); // The index of the node on which the Skynet agent is positioned this turn
 
             // Write an action using System.output.println()
             // To debug: System.err.println("Debug messages...");
-            int linkTarget = subnet.linkToSever(SI, gateway);
+            int linkTarget = virus.linkToSever(SI, gateway);
 
             // Example: 0 1 are the indices of the nodes you wish to sever the link between
             output.printf("%d %d\n", SI, linkTarget);

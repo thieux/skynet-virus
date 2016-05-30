@@ -1,6 +1,5 @@
 package fr.arolla.mathieupauly.skynetvirus;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,21 +8,10 @@ import java.util.List;
  * Depending on the agent position on the subnet it decides what link to sever.
  */
 class SkynetVirus {
-    private final boolean[][] links;
+    private final SkynetSubnet subnet;
 
-    SkynetVirus(int nodeCount) {
-        links = new boolean[nodeCount][nodeCount];
-    }
-
-    /**
-     * Declares a bidirectional link between to nodes.
-     *
-     * @param n1 0-index of the link start
-     * @param n2 0-index of the link end
-     */
-    void createLink(int n1, int n2) {
-        links[n1][n2] = true;
-        links[n2][n1] = true;
+    SkynetVirus(SkynetSubnet subnet) {
+        this.subnet = subnet;
     }
 
     /**
@@ -34,7 +22,7 @@ class SkynetVirus {
      * @return the target node of the link to sever
      */
     int linkToSever(int agent, int gateway) {
-        List<Integer> neighbourhood = neighbours(agent);
+        List<Integer> neighbourhood = subnet.neighbours(agent);
 
         for (Integer neighbour : neighbourhood) {
             if (gateway == neighbour) {
@@ -49,17 +37,5 @@ class SkynetVirus {
         return -1;
     }
 
-
-    private List<Integer> neighbours(int node) {
-        List<Integer> neighbours = new ArrayList<>();
-
-        for (int potentialNeighbour = 0; potentialNeighbour < links.length; potentialNeighbour++) {
-            if (links[node][potentialNeighbour]) {
-                neighbours.add(potentialNeighbour);
-            }
-        }
-
-        return neighbours;
-    }
 
 }
