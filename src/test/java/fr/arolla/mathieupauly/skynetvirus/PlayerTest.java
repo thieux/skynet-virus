@@ -42,4 +42,27 @@ public class PlayerTest {
         Assert.assertEquals("1 2\n", output.toString());
     }
 
+    @Test
+    public void manyPaths() {
+        String input = "4\n" +
+                "4\n" +
+                "1\n" +
+                "1\n" +
+                "3\n" +
+                "2\n" +
+                "3\n" +
+                "0\n" +
+                "1\n" +
+                "0\n" +
+                "2\n" +
+                "3\n" +
+                "0\n" +
+                "2\n";
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        new Player().play(
+                new ByteArrayInputStream(input.getBytes()),
+                new PrintStream(output));
+        Assert.assertEquals("0 1\n2 3\n", output.toString());
+    }
+
 }
