@@ -3,6 +3,9 @@ package fr.arolla.mathieupauly.skynetvirus;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class SkynetVirusTest {
@@ -10,7 +13,7 @@ public class SkynetVirusTest {
     /**
      * Echo implementation used on CodinGame to extract the standard input
      */
-    static class Player {
+    static class EchoPlayer {
         public static void main(String args[]) {
             Scanner in = new Scanner(System.in);
             while (true) {
@@ -32,8 +35,11 @@ public class SkynetVirusTest {
                 "0\n" +
                 "2\n" +
                 "1";
-        String output = "0 1";
-        Assert.assertEquals("1 2", output);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        new Player().play(
+                new ByteArrayInputStream(input.getBytes()),
+                new PrintStream(output));
+        Assert.assertEquals("1 2", output.toString());
     }
 
 }

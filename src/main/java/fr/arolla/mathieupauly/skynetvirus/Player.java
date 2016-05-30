@@ -1,11 +1,20 @@
 package fr.arolla.mathieupauly.skynetvirus;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 class Player {
 
     public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
+        InputStream input = System.in;
+        PrintStream output = System.out;
+
+        new Player().play(input, output);
+    }
+
+    public void play(InputStream input, PrintStream output) {
+        Scanner in = new Scanner(input);
         int N = in.nextInt(); // the total number of nodes in the level, including the gateways
         int L = in.nextInt(); // the number of links
         int E = in.nextInt(); // the number of exit gateways
@@ -18,15 +27,15 @@ class Player {
         }
 
         // game loop
-        while (true) {
+        while (in.hasNext()) {
             int SI = in.nextInt(); // The index of the node on which the Skynet agent is positioned this turn
 
-            // Write an action using System.out.println()
+            // Write an action using System.output.println()
             // To debug: System.err.println("Debug messages...");
 
 
             // Example: 0 1 are the indices of the nodes you wish to sever the link between
-            System.out.println("0 1");
+            output.println("0 1");
         }
     }
 }
