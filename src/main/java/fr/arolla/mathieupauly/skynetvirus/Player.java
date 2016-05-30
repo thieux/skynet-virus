@@ -43,7 +43,7 @@ class Player {
 
             // Write an action using System.output.println()
             // To debug: System.err.println("Debug messages...");
-            Link linkToSever = virus.linkToSever(SI, gateway);
+            Link linkToSever = virus.linkToSever(SI, new int[]{gateway});
 
             // Example: 0 1 are the indices of the nodes you wish to sever the link between
             output.printf("%d %d\n", linkToSever.n1, linkToSever.n2);
