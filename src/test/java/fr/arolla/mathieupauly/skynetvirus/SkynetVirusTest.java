@@ -3,6 +3,8 @@ package fr.arolla.mathieupauly.skynetvirus;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Collections;
+
 public class SkynetVirusTest {
 
     @Test
@@ -39,6 +41,23 @@ public class SkynetVirusTest {
 
         Assert.assertEquals(-1, linkToSever.n1);
         Assert.assertEquals(-1, linkToSever.n2);
+    }
+
+    @Test
+    public void severLinkRemoveNeighbours() {
+        SkynetSubnet subnet = new SkynetSubnet(2);
+
+        subnet.createLink(0, 1);
+        subnet.severLink(0, 1);
+
+        Assert.assertArrayEquals(
+                Collections.<Integer>emptyList().toArray(),
+                subnet.neighbours(0).toArray());
+
+        Assert.assertArrayEquals(
+                Collections.<Integer>emptyList().toArray(),
+                subnet.neighbours(1).toArray());
+
     }
 
     @Test

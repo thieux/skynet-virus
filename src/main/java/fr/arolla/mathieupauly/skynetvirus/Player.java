@@ -45,6 +45,8 @@ class Player {
             // To debug: System.err.println("Debug messages...");
             Link linkToSever = virus.linkToSever(SI, new int[]{gateway});
 
+            subnet.severLink(linkToSever.n1, linkToSever.n2);
+
             // Example: 0 1 are the indices of the nodes you wish to sever the link between
             output.printf("%d %d\n", linkToSever.n1, linkToSever.n2);
             output.flush();
