@@ -28,4 +28,13 @@ public class SkynetVirusTest {
 
         Assert.assertEquals(1, target);
     }
+
+    @Test
+    public void doNothingWhenAgentIsIsolated() {
+        SkynetVirus skynetVirus = new SkynetVirus(3);
+
+        int target = skynetVirus.linkToSever(0, 2);
+
+        Assert.assertEquals(-1, target);
+    }
 }
