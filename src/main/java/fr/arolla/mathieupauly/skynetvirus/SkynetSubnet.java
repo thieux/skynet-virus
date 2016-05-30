@@ -22,6 +22,11 @@ class SkynetSubnet {
         links[n2][n1] = true;
     }
 
+    void severLink(int n1, int n2) {
+        links[n1][n2] = true;
+        links[n2][n1] = true;
+    }
+
     List<Integer> neighbours(int node) {
         List<Integer> neighbours = new ArrayList<>();
 

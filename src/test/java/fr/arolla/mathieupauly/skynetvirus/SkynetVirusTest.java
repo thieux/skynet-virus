@@ -45,9 +45,11 @@ public class SkynetVirusTest {
     public void multipleGateways() {
         SkynetSubnet subnet = new SkynetSubnet(4);
 
-        // the first gateway has been protected (link severed)
+        subnet.createLink(0, 1);
         subnet.createLink(0, 2);
         subnet.createLink(2, 3);
+
+        subnet.severLink(0, 1);
 
         Link linkToSever = new SkynetVirus(subnet).linkToSever(2, new int[]{1, 3});
 
